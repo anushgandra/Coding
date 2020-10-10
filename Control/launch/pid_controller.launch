@@ -1,0 +1,19 @@
+<launch>
+    	<arg name="type" default="PID" />
+	<arg name="use_sim_pose" default="1" />
+	<arg name="ctrl_topic" default="/mux/ackermann_cmd_mux/input/navigation" />
+	<arg name="cte_viz_topic" default="/controller/cte" />
+	<arg name="waypoint_viz_topic" default="/controller/path/waypoints" />
+	<arg name="selected_waypoint_viz_topic" default="/controller/path/selected_waypoint" />
+	<arg name="poses_viz_topic" default="/controller/path/poses" />
+	
+    <node pkg="lab2" type="main.py" name="controller" output="screen">
+	<param name="type" value="$(arg type)" />
+	<param name="use_sim_pose" value="$(arg use_sim_pose)" />
+	<param name="ctrl_topic" value="$(arg ctrl_topic)" />
+	<param name="cte_viz_topic" value="$(arg cte_viz_topic)" />
+	<param name="waypoint_viz_topic" value="$(arg waypoint_viz_topic)" />
+	<param name="poses_viz_topic" value="$(arg poses_viz_topic)" />
+	<param name="selected_waypoint_viz_topic" value="$(arg selected_waypoint_viz_topic)" />
+    </node>	
+</launch>
